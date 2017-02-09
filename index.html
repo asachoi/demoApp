@@ -18,6 +18,7 @@
 </head>
 
 <body style="padding:100px">
+    <h2 class="question">Question 1</h2>
     <div class="container" style="padding:100px 0 0 0">
         <div class="carousel">
             <div class="item i1" id="i1">Testin A</div>
@@ -33,17 +34,25 @@
 
 <script>
 
-  var q1a = [
-      'a',
-      'b',
-      'c',
-      'd',
-      'e',
-      'f'
-  ];
-  var currAnswer = q1a;
+ 
+
+  var qset = {
+      setting:
+      [
+      {
+      q: 'What is your interest',
+      ans : ['Car','House','Cat', 'Apple', 'Sport', 'Chair']
+      },
+      {
+      q: 'question 2',
+      ans : ['2a1','2a2','2a3', '2a4', '2a5', '2aa6']
+      }      
+      ]
+    };
+  
 
 
+  var qnum = 0;
 
   $(".item").on("swipeleft", { d: "n" }, rotate);
   $(".item").on("swiperight", { d: "p" }, rotate);
@@ -51,70 +60,80 @@
   $(".item").on("swipedown", resetcard);
   $("#reset").on("click", reset);
   
-  function reset() {
+ function reset() {
     resetcard();
     currdeg = 0;
-      carousel.css({
-          "-webkit-transform": "rotateY("+currdeg+"deg)",
-          "-moz-transform": "rotateY("+currdeg+"deg)",
-          "-o-transform": "rotateY("+currdeg+"deg)",
-          "transform": "rotateY("+currdeg+"deg)"
-      });    
-
-    var items = $(".item").toArray();
-
-    jQuery.each( items , function( i, val ) {
-        val.innerHTML = currAnswer[i];
+    carousel.css({
+        "-webkit-transform": "rotateY(" + currdeg + "deg)",
+        "-moz-transform": "rotateY(" + currdeg + "deg)",
+        "-o-transform": "rotateY(" + currdeg + "deg)",
+        "transform": "rotateY(" + currdeg + "deg)"
     });
-      
-  }
+
+    console.debug($(".question")[0]);
+    $(".question")[0].innerHTML = qset.setting[qnum].q;
+    $(".item").each(
+        
+        function (i, x) {
+            x.innerHTML = qset.setting[qnum].ans[i];
+
+            //console.debug(x.innerHTML);
+        }
+    );
+    qnum++;
+
+}
 
 
 
 
-    var carousel = $(".carousel"),
-    currdeg  = 0;
-    curritem = 1;
- 
-    function pick() {
-        var currcard = $('.i' + curritem);
-        //alert('.i' + curritem);
-        currcard.css({            
-            "top": "-50",
-            "transition": "top 2s",
-            "transition-timing-function": "linear"
-        });
+var carousel = $(".carousel"),
+    currdeg = 0;
+curritem = 1;
+var answers = [];
 
-        //reset();
+function pick() {
+    var currcard = $('.i' + curritem);
+    //alert('.i' + curritem);
+    currcard.css({
+        "top": "-50",
+        "transition": "top 2s",
+        "transition-timing-function": "linear"
+    });
+
+
+//console.debug(currcard);
+    answers.push(currcard[0].innerHTML);
+console.debug(answers);
+    setTimeout(500, reset());
+}
+
+function resetcard() {
+    var currcard = $('.i' + curritem);
+    //alert('.i' + curritem);
+    currcard.css({
+        "top": "0"
+    });
+}
+
+function rotate(e) {
+    if (e.data.d == "n") {
+        resetcard();
+        currdeg = currdeg - 60;
+        (curritem == 6) ? (curritem = 1) : curritem++;
     }
+    if (e.data.d == "p") {
+        resetcard();
+        currdeg = currdeg + 60;
+        (curritem == 1) ? (curritem = 6) : curritem--;
 
-    function resetcard() {
-        var currcard = $('.i' + curritem);
-        //alert('.i' + curritem);
-        currcard.css({            
-            "top": "0"
-        });        
     }
-
-    function rotate(e){
-      if(e.data.d=="n"){
-          resetcard();
-          currdeg = currdeg - 60;
-          (curritem==6)?(curritem=1):curritem++;
-      }
-      if(e.data.d=="p"){
-          resetcard();
-          currdeg = currdeg + 60;
-          (curritem==1)?(curritem=6):curritem--;
-  
-      }
-      carousel.css({
-          "-webkit-transform": "rotateY("+currdeg+"deg)",
-          "-moz-transform": "rotateY("+currdeg+"deg)",
-          "-o-transform": "rotateY("+currdeg+"deg)",
-          "transform": "rotateY("+currdeg+"deg)"
-      });
-    }
+    carousel.css({
+        "-webkit-transform": "rotateY(" + currdeg + "deg)",
+        "-moz-transform": "rotateY(" + currdeg + "deg)",
+        "-o-transform": "rotateY(" + currdeg + "deg)",
+        "transform": "rotateY(" + currdeg + "deg)"
+    });
+}
 
     </script>
- 

@@ -1,8 +1,8 @@
 // Code goes here
 
- 
+
 (function () {
-// initializes touch and scroll events
+    // initializes touch and scroll events
     var supportTouch = $.support.touch,
         scrollEvent = "touchmove scroll",
         touchStartEvent = supportTouch ? "touchstart" : "mousedown",
@@ -17,11 +17,11 @@
 
             $this.bind(touchStartEvent, function (event) {
                 var data = event.originalEvent.touches ?
-                        event.originalEvent.touches[ 0 ] :
-                        event,
+                    event.originalEvent.touches[0] :
+                    event,
                     start = {
                         time: (new Date).getTime(),
-                        coords: [ data.pageX, data.pageY ],
+                        coords: [data.pageX, data.pageY],
                         origin: $(event.target)
                     },
                     stop;
@@ -32,11 +32,11 @@
                     }
 
                     var data = event.originalEvent.touches ?
-                        event.originalEvent.touches[ 0 ] :
+                        event.originalEvent.touches[0] :
                         event;
                     stop = {
                         time: (new Date).getTime(),
-                        coords: [ data.pageX, data.pageY ]
+                        coords: [data.pageX, data.pageY]
                     };
 
                     // prevent scrolling
@@ -64,7 +64,7 @@
         }
     };
 
-//Adds the events to the jQuery events special collection
+    //Adds the events to the jQuery events special collection
     $.each({
         swipedown: "swipeupdown",
         swipeup: "swipeupdown"
@@ -75,13 +75,20 @@
             }
         };
         //Adds new events shortcuts
-        $.fn[ event ] = function( fn ) {
-            return fn ? this.bind( event, fn ) : this.trigger( event );
+        $.fn[event] = function (fn) {
+            return fn ? this.bind(event, fn) : this.trigger(event);
         };
         // jQuery < 1.8
-        if ( $.attrFn ) {
-            $.attrFn[ event ] = true;
+        if ($.attrFn) {
+            $.attrFn[event] = true;
         }
     });
 
+
+
+
+
+
+
 })();
+
