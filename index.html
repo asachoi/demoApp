@@ -13,7 +13,9 @@
     <!-- Include the jQuery Mobile library -->
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script src="script.js"></script>
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
 </head>
 
@@ -92,8 +94,8 @@
 
 var carousel = $(".carousel"),
     currdeg = 0;
-curritem = 1;
-var answers = [];
+    curritem = 1;
+    var answers = [];
 
 function pick() {
     var currcard = $('.i' + curritem);
@@ -107,7 +109,7 @@ function pick() {
 
 //console.debug(currcard);
     answers.push(currcard[0].innerHTML);
-console.debug(answers);
+    
     setTimeout(500, reset());
 }
 
