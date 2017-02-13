@@ -32,6 +32,8 @@
         </div>
     </div>
     <p id="reset">Reset all</p>
+
+    <div id="answers"/>
 </body>
 
 <script>
@@ -81,8 +83,7 @@
         
         function (i, x) {
             x.innerHTML = qset.setting[qnum].ans[i];
-
-            //console.debug(x.innerHTML);
+ 
         }
     );
     qnum++;
@@ -109,6 +110,8 @@ function pick() {
 
 //console.debug(currcard);
     answers.push(currcard[0].innerHTML);
+    $("#answers").innerHTML = answers;
+
     
     setTimeout(500, reset());
 }
