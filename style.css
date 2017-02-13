@@ -35,31 +35,31 @@
     }
     
     .i1 {
-        transform: rotateY(0deg) translateZ(100px);
+        transform: rotateY(0deg) translateZ(150px);
         background: #ed1c24;
     }
     
     .i2 {
-        transform: rotateY(60deg) translateZ(100px);
+        transform: rotateY(60deg) translateZ(150px);
         background: #0072bc;
     }
     
     .i3 {
-        transform: rotateY(120deg) translateZ(100px);
+        transform: rotateY(120deg) translateZ(150px);
         background: #39b54a;
     }
     
     .i4 {
-        transform: rotateY(180deg) translateZ(100px);
+        transform: rotateY(180deg) translateZ(150px);
         background: #f26522;
     }
     
     .i5 {
-        transform: rotateY(240deg) translateZ(100px);
+        transform: rotateY(240deg) translateZ(150px);
         background: #630460;
     }
     
     .i6 {
-        transform: rotateY(300deg) translateZ(100px);
+        transform: rotateY(300deg) translateZ(150px);
         background: #8c6239;
     }
