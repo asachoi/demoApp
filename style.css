@@ -6,8 +6,8 @@
     
     .container {
         margin: 0 auto;
-        width: 200px;
-        height: 300px;
+        width: 100px;
+        height: 200px;
         position: relative;
         perspective: 1000px;
     }
@@ -24,8 +24,8 @@
         display: block;
         position: absolute;
         background: #000;
-        width: 200px;
-        height: 300px;
+        width: 100px;
+        height: 200px;
         line-height: 300px;
         font-size: 10px;
         text-align: center;
